@@ -1,0 +1,31 @@
+version: '3'
+
+volumes:
+  react-typescript-laravel-spa-example-database:
+    driver: local
+
+services:
+  app:
+    container_name: app
+    build: ./docker/app
+    command: php /var/www/artisan serve --host 0.0.0.0 --port 80
+    tty: true
+    ports:
+    - 80:80
+    volumes:
+    - ./example-app:/var/www
+    depends_on:
+    - mariadb
+
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+    - react-typescript-laravel-spa-example-database:/var/lib/mysql
+    - ./docker/database/sql:/docker-entrypoint-initdb.d
+    ports:
+    - 3306:3306
