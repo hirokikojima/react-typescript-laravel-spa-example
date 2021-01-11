@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import HomePage from './containers/HomePage'
-import ListPage from './containers/ListPage'
+import TodoPage from './containers/TodoPage'
 
 const routes = [
   {
@@ -13,8 +13,8 @@ const routes = [
     main: () => <HomePage />
   },
   {
-    path: '/list',
-    main: () => <ListPage />
+    path: '/todo',
+    main: () => <TodoPage />
   }
 ]
 

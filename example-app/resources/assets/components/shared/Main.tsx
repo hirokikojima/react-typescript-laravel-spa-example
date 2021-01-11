@@ -12,7 +12,7 @@ const Main: FC<Props> = ({children}) => (
             <Link to="/">Home</Link>
           </li>
           <li className="nav-item">
-            <Link to="/list">List</Link>
+            <Link to="/todo">Todo</Link>
           </li>
         </ul>
       </nav>

@@ -19,5 +19,6 @@ mix.ts('resources/assets/index.tsx', 'public/js')
             plugins: [new TsconfigPathsPlugin({
                 configFile: 'tsconfig.json'
             })]
-        }
+        },
+        devtool: 'inline-source-map'
     });
